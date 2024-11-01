@@ -1,6 +1,9 @@
 -- This is a small Löve2D experiment.
 
 player = {x=1024/2, y=768/2, health=100}
+tank_width = 40
+tank_height = 40
+
 
 -- Change the screen to fullscreen mode and hide the cursor.
 function love.load()
@@ -14,7 +17,11 @@ function love.draw()
   love.graphics.setColor(0,0,0)
   x = player.x
   y = player.y
-  love.graphics.polygon('line', {x-20, y-20, x+20, y-20, x+20, y+20, x-20, y+20})
+  love.graphics.polygon('line', {
+    x-tank_width/2, y-tank_height/2,
+    x+tank_width/2, y-tank_height/2,
+    x+tank_width/2, y+tank_height/2,
+    x-tank_width/2, y+tank_height/2})
 end
 
 -- Use the a,w,s,d keys to move the player around the world.
