@@ -40,9 +40,21 @@ function love.update(dt)
   if love.keyboard.isDown('s') then
     speedY = speedY + 100
   end
-
   player.x = player.x + speedX*dt
   player.y = player.y + speedY*dt
+
+  if player.x < tank_width/2 then
+      player.x = tank_width/2
+  end
+  if player.x > love.graphics.getWidth() - tank_width/2 then
+      player.x = love.graphics.getWidth() - tank_width/2
+  end
+  if player.y < tank_height/2 then
+      player.y = tank_height/2
+  end
+  if player.y > love.graphics.getHeight() - tank_height/2 then
+      player.y = love.graphics.getHeight() - tank_height/2
+  end
 end
 
 -- Exit the game if the user presses the Escape key.
